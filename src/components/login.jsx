@@ -17,7 +17,15 @@ const Login = () => {
     <div style={styles.container}>
       <div style={styles.card}>
         <form onSubmit={handleSubmit}>
-          <p style={styles.title}>Para registrarte debes rellenar el formulario a continuación</p>
+          <h2 style={styles.title}>Inicio de sesión</h2>
+          <input
+            type="text"
+            placeholder="Ingrese su Rut"
+            style={styles.input}
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <input
             type="email"
             placeholder="Ingrese su correo"
@@ -26,20 +34,15 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="text"
-            placeholder="Ingrese su Nombre"
-            style={styles.input}
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input type="text" placeholder="Lorem ipsum dolor" style={styles.input} />
-          <input type="text" placeholder="Lorem ipsum dolor" style={styles.input} />
-          <input type="text" placeholder="Lorem ipsum dolor" style={styles.input} />
-          <input type="text" placeholder="Lorem ipsum dolor" style={styles.input} />
-          <button type="submit" style={styles.button}>Registrar</button>
+          <button type="submit" style={styles.button}>Ingresar</button>
         </form>
+        <button 
+          type="button" 
+          style={{ ...styles.button, backgroundColor: 'transparent', color: 'red', border: '1px solid red', marginTop: '10px' }}
+          onClick={() => navigate('/registro')}
+        >
+          ¿Aún no tienes una cuenta?
+        </button>
       </div>
     </div>
   );
@@ -59,7 +62,7 @@ const styles = {
     borderRadius: '8px',
     boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
     width: '100%',
-    maxWidth: '400px',  // Ajusta el tamaño máximo de la caja
+    maxWidth: '400px',
     margin: '20px',
   },
   title: {

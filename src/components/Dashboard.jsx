@@ -1,6 +1,21 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/');
+  };
+
+  const handleReportes = () => {
+    navigate('/reportes');
+  };
+
+  const handlePerfil = () => {
+    navigate('/perfil');
+  };
+
   return (
     <div className="min-h-screen bg-[#e6f3fb] p-6">
       <div style={styles.card}>
@@ -23,9 +38,17 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <button className="mt-6 px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-          Cerrar Sesión
-        </button>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <button style={styles.button} onClick={handleReportes} className="bg-blue-500 hover:bg-blue-600">
+            Ver Reportes
+          </button>
+          <button style={styles.button} onClick={handleLogout} className="bg-red-500 hover:bg-red-600">
+            Cerrar Sesión
+          </button>
+          <button style={styles.button} onClick={handlePerfil} className="bg-red-500 hover:bg-red-600">
+            Perfil
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -38,9 +61,23 @@ const styles = {
     borderRadius: '8px',
     boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
     width: '100%',
-    maxWidth: '900px',  // Ajusta el tamaño máximo de la caja
-    margin: '0 auto',  // Centra el contenedor en la pantalla
-  }
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
+  button: {
+    width: 'auto',
+    minWidth: '120px',  // Ancho mínimo
+    padding: '8px 16px',
+    margin: '5px',      // Separación entre botones
+    backgroundColor: 'red',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    display: 'inline-block', // Para que queden lado a lado
+    textAlign: 'center'
+  }  
 };
 
 export default Dashboard;
